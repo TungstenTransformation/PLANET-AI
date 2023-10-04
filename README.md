@@ -19,7 +19,10 @@ Integration of recognition engine of PLANET-AI into Kofax Transformation
   * Type **pip install grpcio-tools** to install Google's [Remote Procedure Call](https://en.wikipedia.org/wiki/GRPC) framework. You should see *Successfully installed grpcio-1.59.0*.
 
   ## Reverse Engineering REST Service
-* the following curl command successfully logs into the IDA Cockpit. It ignores the certificate.
+* the following curl command successfully logs into the IDA Cockpit.    
+  * -k = ignore certificate
+  * -v = verbose, show response headers
+  * -o nul = don't show html response
 ```cmd
-curl -k  --header "Content-Type: plain/text"  --data-raw "username=admin&password=password"  https://localhost:8004/
+curl -v -o nul -k --header "Content-Type: plain/text"  --data-raw "username=admin&password=password"  https://localhost:8004/
 ```  
